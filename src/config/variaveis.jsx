@@ -1,0 +1,1 @@
+export const CHAVE_API = import.meta.env.VITE_CHAVE_API
