@@ -42,17 +42,3 @@ export const ContainerPictures = styled.div`
         padding: 10px
     }
 `
-
-export const ButtonContainer = styled.div`
-    position: fixed;
-    bottom: 20px; 
-    left: 50%;
-    transform: translateX(-50%); 
-    z-index: 1000; 
-    
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-`

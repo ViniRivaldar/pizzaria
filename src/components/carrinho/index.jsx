@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Modal} from './styled'
 import { useEffect } from 'react'
 
-export default function Carrinho({ toggleCart,cartItems }){
+export default function Carrinho({ toggleCart }){
 
     useEffect(()=>{
         const handleOutsideClick = (e) => {
@@ -19,22 +19,11 @@ export default function Carrinho({ toggleCart,cartItems }){
         }
     },[toggleCart])
 
-    
     return(
         <Modal className="modal">
             <div className="modal-content">
                 <span className="close" onClick={toggleCart}>&times;</span>
                 <h1>carrinho</h1>
-                <ul>
-                    {cartItems.map((item, index) => (
-                        <li key={index}>
-                            {item.name} - {item.price.toLocaleString('pt-BR', {
-                                style: 'currency',
-                                currency: 'BRL',
-                            })}
-                        </li>
-                    ))}
-                </ul>
             </div>
         </Modal>
 
@@ -43,5 +32,4 @@ export default function Carrinho({ toggleCart,cartItems }){
 
 Carrinho.propTypes = {
     toggleCart: PropTypes.func.isRequired,
-    cartItems: PropTypes.array.isRequired
 }
