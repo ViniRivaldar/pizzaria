@@ -7,10 +7,10 @@ export function addCart(payload) {
     };
 }
 
-export function removeCart(payload) {
+export function removeCart(id) {
     return {
         type: types.remover_produto_carrinho,
-        payload,
+        payload: { id },
     };
 }
 
@@ -19,3 +19,8 @@ export function clearCart() {
         type: types.limpar_carrinho,
     };
 }
+
+export const updateCart = (id, quantidade) => ({
+    type: types.UPDATE_CART,
+    payload: { id, quantidade },
+});

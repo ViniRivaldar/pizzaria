@@ -44,7 +44,7 @@ export default function Produto(){
             name: product.name,
             price: product.price,
             description: product.description,
-            imageUrl: product.imageUrl || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTosf9DrL7LNKEdcQkD6jKNt7jLE68JZC9w0jsIduelte7L8VeM6no8EjosXDYeLM1eztA&usqp=CAU'
+            imageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTosf9DrL7LNKEdcQkD6jKNt7jLE68JZC9w0jsIduelte7L8VeM6no8EjosXDYeLM1eztA&usqp=CAU'
         }))
         
     }

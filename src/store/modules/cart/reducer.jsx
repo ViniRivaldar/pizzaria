@@ -35,6 +35,15 @@ export default function reducer(state = initialState, actions){
                 carrinho: []
             };
         }
+        case types.UPDATE_CART:{
+                return {
+                    ...state,
+                    carrinho: state.carrinho.map(produto => 
+                        produto.id === actions.payload.id ?
+                            { ...produto, quantidade: actions.payload.quantidade }: produto),
+            };
+
+        }
 
         default: 
             return state
