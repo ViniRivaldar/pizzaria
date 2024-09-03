@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import {Container} from '../../styles/GlobalStyles'
 import {ContainerProducts, ContainerPictures} from './styles'
 import axios from '../../services/axios'
+import * as actions from '../../store/modules/cart/actions'
 
 
 
@@ -23,6 +24,7 @@ export default function Produto(){
             setProduct(response.data)
         }
         getData()
+
     },[id])
 
     if (!product) {
@@ -37,16 +39,14 @@ export default function Produto(){
     }
 
     const handleAddToCart = ()=>{
-        dispatch({
-            type: 'adicionar_produto_carrinho',
-            payload: {
-                id: product.id,
-                name: product.name,
-                price: product.price,
-                description: product.description,
-                imageUrl: product.imageUrl || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTosf9DrL7LNKEdcQkD6jKNt7jLE68JZC9w0jsIduelte7L8VeM6no8EjosXDYeLM1eztA&usqp=CAU'  // Adiciona a URL da imagem
-            }
-        })
+        dispatch(actions.addCart({
+            id: product._id,
+            name: product.name,
+            price: product.price,
+            description: product.description,
+            imageUrl: product.imageUrl || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTosf9DrL7LNKEdcQkD6jKNt7jLE68JZC9w0jsIduelte7L8VeM6no8EjosXDYeLM1eztA&usqp=CAU'
+        }))
+        
     }
 
     return(
