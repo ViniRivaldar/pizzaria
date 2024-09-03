@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import {useState} from 'react'
 import {FaHome, FaUserAlt, FaSignInAlt, FaShoppingCart} from 'react-icons/fa'
-
 import Carrinho from '../carrinho'
 import {Nav} from './styled'
 
@@ -29,7 +28,6 @@ export default function Header(){
                 <FaShoppingCart size={24} style={{color:'#fff'}}/>
             </div>
             {showCart &&(<Carrinho toggleCart={toggleCart}/>)}
-
         </Nav>
     ) 
 }

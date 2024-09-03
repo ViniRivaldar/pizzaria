@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import { useDispatch } from 'react-redux'
 
 
 import {Container} from '../../styles/GlobalStyles'
@@ -9,6 +10,7 @@ import axios from '../../services/axios'
 
 
 export default function Produto(){
+    const dispatch = useDispatch()
     const {id} = useParams()
     const[product, setProduct] = useState(null)
     
@@ -34,6 +36,19 @@ export default function Produto(){
         });
     }
 
+    const handleAddToCart = ()=>{
+        dispatch({
+            type: 'adicionar_produto_carrinho',
+            payload: {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                description: product.description,
+                imageUrl: product.imageUrl || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTosf9DrL7LNKEdcQkD6jKNt7jLE68JZC9w0jsIduelte7L8VeM6no8EjosXDYeLM1eztA&usqp=CAU'  // Adiciona a URL da imagem
+            }
+        })
+    }
+
     return(
         <Container>
             <ContainerProducts>
@@ -44,7 +59,7 @@ export default function Produto(){
                 </ContainerPictures>
                 <p>{formatPrice(product.price)}</p>
             </ContainerProducts>
-            <button>Adicionar ao carrinho</button>
+            <button onClick={handleAddToCart}>Adicionar ao carrinho</button>
         </Container>
     ) 
 }
