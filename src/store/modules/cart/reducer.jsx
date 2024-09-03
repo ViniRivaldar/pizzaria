@@ -21,6 +21,21 @@ export default function reducer(state = initialState, actions){
                 carrinho: [...state.carrinho, { ...actions.payload, quantidade: 1 }]  
             }
         }
+
+        case types.remover_produto_carrinho: {
+            return {
+                ...state,
+                carrinho: state.carrinho.filter(produto => produto.id !== actions.payload.id)
+            };
+        }
+
+        case types.limpar_carrinho: {
+            return {
+                ...state,
+                carrinho: []
+            };
+        }
+
         default: 
             return state
     }

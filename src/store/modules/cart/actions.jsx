@@ -6,3 +6,16 @@ export function addCart(payload) {
         payload,
     };
 }
+
+export function removeCart(payload) {
+    return {
+        type: types.remover_produto_carrinho,
+        payload,
+    };
+}
+
+export function clearCart() {
+    return {
+        type: types.limpar_carrinho,
+    };
+}
