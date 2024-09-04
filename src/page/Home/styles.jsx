@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import * as colors from '../../config/color'
 
 export const ContainerProducts = styled.div`
     a{
@@ -9,7 +10,7 @@ export const ContainerProducts = styled.div`
     }
 
     a:hover{
-        background:#C3073F ;
+        background:${colors.primaryColor} ;
         color: #fff;
     }
 
@@ -17,4 +18,20 @@ export const ContainerProducts = styled.div`
         font-size: 25px;
     }
 
+    h1{
+        background: ${colors.primaryDarkColor};
+        color: #fff;
+        padding: 10px;
+        border-radius: 4px;
+        margin: 10px 0;
+    }
+
 `
+
+export const ResponsiveImage = styled.img`
+    width: 542px;
+    height: 216px;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 4px;
+`;
