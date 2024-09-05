@@ -7,7 +7,7 @@ const reducerPersist = reducers =>{
     {
         key:'pizzaria',
         storage,
-        whitelist:['cart', 'auth']
+        whitelist:['cart','auth']
     },reducers)
 
     return persist

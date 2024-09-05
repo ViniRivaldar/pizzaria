@@ -1,22 +1,24 @@
 import * as types from '../types'
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function loginRequest(payload) {
     return {
-      type: types.LOGIN_REQUEST,
-      payload
+        type: types.LOGIN_REQUEST,
+        payload,
     };
-  }
-  
-  export function loginSuccess(payload) {
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loginSuccess(payload) {
     return {
-      type: types.LOGIN_SUCCESS,
-      payload
+        type: types.LOGIN_SUCCESS,
+        payload
     };
-  }
-  
-  export function loginFailure(payload) {
+}
+
+export function LoginFailure(payload) {
     return {
-      type: types.LOGIN_FAILURE,
-      payload
+        type: types.LOGIN_FAILURE,
+        payload
     };
 }

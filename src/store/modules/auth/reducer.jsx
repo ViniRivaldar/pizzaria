@@ -1,17 +1,16 @@
 import * as types from '../types'
 
 const initialState = {
-    isLoggedIn: false,
-    token: false,
+    isLoggeIn: false,
+    token:false,
     user:{},
-    isLoading: false
+    isloading: false
 }
 export default function reducer(state = initialState, actions){
     switch (actions.type){
         case types.LOGIN_REQUEST:{
-            const newState = {...state}
-            newState.isLoading = true
-            return newState
+            console.log('reducer', actions.payload)
+            return state
         }
 
         default: 
