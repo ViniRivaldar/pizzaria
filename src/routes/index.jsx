@@ -5,14 +5,15 @@ import Produto from '../page/Produto'
 import Register from '../page/Register'
 import Login from '../page/Login'
 import Notfound from '../page/NotFound'
+import MyRoute from './MyRoutes';
 
 export default function AppRoutes() {
     return (
         <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/produto/:id' element={<Produto/>}/>
-            <Route path='/register' element={<Register/>}/>
-            <Route path='/login' element={<Login/>}/>
+            <Route path='/' element={<MyRoute element={Home} />}/>
+            <Route path='/produto/:id' element={<MyRoute element={Produto} />}/>
+            <Route path='/register' element={<MyRoute element={Register} />}/>
+            <Route path='/login' element={<MyRoute element={Login} />}/>
             <Route path='*' element={<Notfound/>}/>
         </Routes>
     )
