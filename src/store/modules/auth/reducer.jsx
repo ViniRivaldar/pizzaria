@@ -29,7 +29,7 @@ export default function reducer(state = initialState, actions){
 
         case types.LOGIN_REQUEST:{
             const newState = {...state}
-            newState.isLoading = true
+            newState.isLoading = false
             return newState
         }
       
