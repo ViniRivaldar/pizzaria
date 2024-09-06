@@ -46,10 +46,10 @@ function* registerRequest({payload}){
       })
 
       toast.success('Conta editada com sucesso!')
-      yield put(actions.registerUpdatedSuccess({name, phone, email, password}))
+      yield put(actions.registerUpdatedSuccess({id,name, phone, email, password}))
+      window.location.href = '/'
 
     }else{
-
       yield call(axios.post, '/users', {
         name,
         phone,
@@ -67,10 +67,10 @@ function* registerRequest({payload}){
     const errors = get(err, 'response.data.errors', [])
     const status = get(err, 'response.status', 0)
 
-
-    if(status === 401){
+    if(status === 400){
       toast.error('Você precisa fazer o login novamente')
       yield put(actions.registerFailure())
+      window.location.href = '/login'
       return 
     }
 

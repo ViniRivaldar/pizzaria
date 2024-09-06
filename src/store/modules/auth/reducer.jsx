@@ -24,6 +24,7 @@ export default function reducer(state = initialState, actions){
             newState.token = false
             newState.user = {}
             newState.isLoading = false
+            window.location.href = '/login'
             return newState
         }
 
@@ -35,11 +36,11 @@ export default function reducer(state = initialState, actions){
 
         case types.REGISTER_UPDATED_SUCCESS:{
             const newState = {...state}
-            newState.user.nome = actions.payload.nome
+            newState.user.name = actions.payload.name
             newState.user.email = actions.payload.email
             newState.isLoading = false
             return newState
-        }
+          }
           
         case types.REGISTER_CREATED_SUCCESS:{
             const newState = {...state}
@@ -53,6 +54,7 @@ export default function reducer(state = initialState, actions){
             newState.token = false
             newState.user = {}
             newState.isLoading = false
+            window.location.href = '/login'
             return newState
         }
 
