@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 import {Container} from '../../styles/GlobalStyles'
@@ -12,6 +12,7 @@ import * as actions from '../../store/modules/cart/actions'
 
 export default function Produto(){
     const dispatch = useDispatch()
+    const isLoggedIn = useSelector(state=>state.auth.user._id)
     const {id} = useParams()
     const[product, setProduct] = useState(null)
     
@@ -59,7 +60,12 @@ export default function Produto(){
                 </ContainerPictures>
                 <p>{formatPrice(product.price)}</p>
             </ContainerProducts>
-            <button onClick={handleAddToCart}>Adicionar ao carrinho</button>
+            {!isLoggedIn ? (
+                <span>Para seguir comprando, <Link to='/login'>vá para a página de login</Link> </span>
+            ) : (
+                <button onClick={handleAddToCart}>Adicionar ao carrinho</button>)
+                
+            }
         </Container>
     ) 
 }

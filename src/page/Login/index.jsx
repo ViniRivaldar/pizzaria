@@ -3,11 +3,13 @@ import * as yup from 'yup'
 import {toast} from 'react-toastify'
 import { useDispatch,useSelector } from 'react-redux'
 import{get} from 'lodash'
+import { Link } from 'react-router-dom'
 
 import {Container} from '../../styles/GlobalStyles'
 import {Form} from './styled'
 import * as actions from '../../store/modules/auth/actions'
 import Loading from '../../components/loading'
+
 
 
 
@@ -61,6 +63,7 @@ export default function Login(props){
                 />
                 <button type='submit'>Entrar</button>
             </Form>
+            <span>Não tem conta? </span><Link to='/register'>Cadastre-se</Link>
         </Container>
     )
 }

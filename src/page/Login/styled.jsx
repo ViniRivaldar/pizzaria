@@ -4,6 +4,7 @@ export const Form = styled.form`
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 
     input{
         margin-bottom: 20px;
