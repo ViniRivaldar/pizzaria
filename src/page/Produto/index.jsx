@@ -7,6 +7,7 @@ import {Container} from '../../styles/GlobalStyles'
 import {ContainerProducts, ContainerPictures} from './styles'
 import axios from '../../services/axios'
 import * as actions from '../../store/modules/cart/actions'
+import Carrinho from '../../components/carrinho'
 
 
 
@@ -15,6 +16,12 @@ export default function Produto(){
     const isLoggedIn = useSelector(state=>state.auth.user._id)
     const {id} = useParams()
     const[product, setProduct] = useState(null)
+    const[showCart, setShowCart]= useState(false)
+
+    const toggleCart = ()=>{
+        setShowCart(!showCart)
+
+    }
     
 
     useEffect(()=>{
@@ -25,6 +32,8 @@ export default function Produto(){
             setProduct(response.data)
         }
         getData()
+
+       
 
     },[id])
 
@@ -47,6 +56,7 @@ export default function Produto(){
             description: product.description,
             imageUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTosf9DrL7LNKEdcQkD6jKNt7jLE68JZC9w0jsIduelte7L8VeM6no8EjosXDYeLM1eztA&usqp=CAU'
         }))
+        toggleCart()
         
     }
 
@@ -66,6 +76,8 @@ export default function Produto(){
                 <button onClick={handleAddToCart}>Adicionar ao carrinho</button>)
                 
             }
+
+            {showCart && (<Carrinho toggleCart={toggleCart}/>)}
         </Container>
     ) 
 }

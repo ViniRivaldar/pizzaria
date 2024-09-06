@@ -115,4 +115,13 @@ export const Modal = styled.div`
         color: ${colors.primaryDarkColor};
     }
 
+    .comprar a{
+        width: 98px;
+        height: 43px;
+        background: #C3073F;
+        color: #fff;
+        padding: 13px;
+        border-radius: 5px;
+    }
+
 `

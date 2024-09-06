@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaTrash } from 'react-icons/fa';
+import {Link} from 'react-router-dom'
+
 import { Modal } from './styled';
 import { useEffect, useMemo } from 'react';
 import * as actions from '../../store/modules/cart/actions';
@@ -42,7 +44,7 @@ export default function Carrinho({ toggleCart }) {
 
   const totalCarrinho = useMemo(() => {
     return produtos.reduce((total, produto) => {
-      return total + (produto.quantidade * produto.price); // Calcula o total de cada produto e soma ao total
+      return total + (produto.quantidade * produto.price); 
     }, 0);
   }, [produtos]);
 
@@ -85,7 +87,7 @@ export default function Carrinho({ toggleCart }) {
             style: 'currency',
             currency: 'BRL',
           })}</p>
-          <button>Comprar</button>
+          <Link to='/orders' onClick={toggleCart}>Comprar</Link>
         </div>
       </div>
     </Modal>
