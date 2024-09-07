@@ -35,12 +35,18 @@ export default function reducer(state = initialState, actions){
         }
 
         case types.REGISTER_UPDATED_SUCCESS:{
-            const newState = {...state}
-            newState.user.name = actions.payload.name
-            newState.user.email = actions.payload.email
-            newState.isLoading = false
+            console.log(actions.payload)
+            const newState = {
+                ...state,
+                user: {
+                    ...state.user, 
+                    name: actions.payload.name,
+                    email: actions.payload.email,
+                },
+                isLoading: false,
+            };
             return newState
-          }
+        }
           
         case types.REGISTER_CREATED_SUCCESS:{
             const newState = {...state}

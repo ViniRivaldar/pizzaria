@@ -79,7 +79,6 @@ function* registerRequest({payload}){
     }else{
       toast.error('Erro desconhecido')
     }
-
     yield put(actions.registerFailure())
   }
 }
