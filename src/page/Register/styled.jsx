@@ -13,3 +13,8 @@ export const Form = styled.form`
         border: 1px solid #ddd;
     }
 `
+
+export const Links = styled.div`
+    display: flex;
+    justify-content: space-around;
+`

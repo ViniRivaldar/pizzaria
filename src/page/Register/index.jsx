@@ -6,9 +6,10 @@ import { get } from 'lodash'
 
 
 import {Container} from '../../styles/GlobalStyles'
-import { Form } from './styled'
+import { Form, Links } from './styled'
 import Loading from '../../components/loading'
 import * as actions from '../../store/modules/auth/actions'
+import Address from '../../components/adress'
 import axios from '../../services/axios'
 
 export default function Register(){
@@ -16,6 +17,7 @@ export default function Register(){
     const[phone, setPhone] = useState('')
     const[email,setEmail]= useState('')
     const[password, setPassword] = useState('')
+    const [showAddress, setShowAddress] = useState(false)
 
     const dispatch = useDispatch()
     const isLoading = useSelector(state => state.auth.isLoading)
@@ -86,14 +88,22 @@ export default function Register(){
             }
         }
 
-    } 
+    }
+    
+    const toggleAddress = ()=>{
+        setShowAddress(!showAddress)
+    }
 
     return(
         <Container>
             <Loading isLoading={isLoading}/>
 
             <h1 style={{textAlign:'center',marginBottom:'30px'}}>{id ? 'Editar conta' :'Registro'}</h1>
-            {id && <a style={{cursor:'pointer'}} onClick={handleDelete}>Apagar conta</a>}
+            <Links>
+                {id && <a style={{cursor:'pointer'}} onClick={handleDelete}>Apagar conta</a>}
+                {id && <a style={{cursor:'pointer'}} onClick={toggleAddress}>Adicionar seu endereço</a>}
+                {showAddress && (<Address toggleAddress={toggleAddress}/>)}
+            </Links>
 
             <Form onSubmit={handleSubmit}>
                 <input type='text' 
@@ -111,7 +121,7 @@ export default function Register(){
                     onChange={e=>setEmail(e.target.value)}
                     placeholder='Digite um email'
                 />
-                <input type='text'
+                <input type='pasword'
                     value={password}
                     onChange={e=>setPassword(e.target.value)}
                     placeholder='Digite uma senha'
