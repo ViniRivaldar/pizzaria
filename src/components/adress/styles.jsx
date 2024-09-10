@@ -29,6 +29,16 @@ export const Modal = styled.div`
         cursor: pointer;
     }
 
+    .header{
+        margin-bottom: 39px;
+    }
+
+    .header a{
+        float: right;
+        cursor: pointer;
+        
+    }
+
 `
 
 export const Form = styled.form`

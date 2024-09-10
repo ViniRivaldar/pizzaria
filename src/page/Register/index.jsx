@@ -18,6 +18,7 @@ export default function Register(){
     const[email,setEmail]= useState('')
     const[password, setPassword] = useState('')
     const [showAddress, setShowAddress] = useState(false)
+    const[address, setAdress] = useState([])
 
     const dispatch = useDispatch()
     const isLoading = useSelector(state => state.auth.isLoading)
@@ -58,6 +59,23 @@ export default function Register(){
 
     }
 
+    useEffect(()=>{
+        if(!id){
+            toast.error("Ação não autorizada")
+        }
+
+        async function getData(){
+            const response = await axios.get('/users')
+            const dataAdrress = response.data.address
+            
+            if(dataAdrress.length > 0){
+                setAdress(dataAdrress)
+            }
+        }
+
+        getData()
+    },[id])
+
     const handleDelete = async ()=>{
         try {
             if(!id){
@@ -92,6 +110,7 @@ export default function Register(){
     
     const toggleAddress = ()=>{
         setShowAddress(!showAddress)
+        
     }
 
     return(
@@ -101,7 +120,9 @@ export default function Register(){
             <h1 style={{textAlign:'center',marginBottom:'30px'}}>{id ? 'Editar conta' :'Registro'}</h1>
             <Links>
                 {id && <a style={{cursor:'pointer'}} onClick={handleDelete}>Apagar conta</a>}
-                {id && <a style={{cursor:'pointer'}} onClick={toggleAddress}>Adicionar seu endereço</a>}
+                {id && (
+                    <a style={{cursor:'pointer'}} onClick={toggleAddress}>{address.length > 0 ? 'Editar endereço' :'Adicionar seu endereço'}</a>
+                )}
                 {showAddress && (<Address toggleAddress={toggleAddress}/>)}
             </Links>
 

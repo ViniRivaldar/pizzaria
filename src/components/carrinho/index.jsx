@@ -26,10 +26,13 @@ export default function Carrinho({ toggleCart }) {
 
   const handleDelete = (id) => {
     dispatch(actions.removeCart(id));
+
+    if(produtos.length === 1) toggleCart()
   };
 
   const handleClean = () => {
     dispatch(actions.clearCart());
+    toggleCart()
   };
 
   const handleDecrement = (id, quantidade) => {

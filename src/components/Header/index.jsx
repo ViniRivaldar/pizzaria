@@ -12,6 +12,7 @@ export default function Header(){
     const[showCart, setShowCart]= useState(false)
     const produtos = useSelector(state => state.cart.carrinho)
     const id = useSelector(state=>state.auth.user._id)
+    const cart = useSelector(state=>state.cart.carrinho)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -49,12 +50,14 @@ export default function Header(){
                     style={{color:"#fff", cursor:'pointer'}}
                     onClick={handleClick}
                 />
-                <CartIconWrapper onClick={toggleCart} style={{cursor:'pointer'}}>
-                    <FaShoppingCart size={24} style={{color:'#fff'}}/>
-                    {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
-                </CartIconWrapper>
+                {cart.length > 0 &&(
+                    <CartIconWrapper onClick={toggleCart} style={{cursor:'pointer'}}>
+                        <FaShoppingCart size={24} style={{color:'#fff'}}/>
+                        {totalItems > 0 && <CartBadge>{totalItems}</CartBadge>}
+                    </CartIconWrapper>
+                    
+                )}
                 {showCart &&(<Carrinho toggleCart={toggleCart}/>)}
-                
              </>   
             )}
         </Nav>
