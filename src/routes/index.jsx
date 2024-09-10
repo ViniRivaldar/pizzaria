@@ -5,6 +5,7 @@ import Produto from '../page/Produto'
 import Register from '../page/Register'
 import Login from '../page/Login'
 import Orders from '../page/orders'
+import Order from '../page/order'
 import Notfound from '../page/NotFound'
 import MyRoute from './MyRoutes';
 
@@ -16,6 +17,7 @@ export default function AppRoutes() {
             <Route path='/register' element={<MyRoute element={Register} />}/>
             <Route path='/login' element={<MyRoute element={Login} />}/>
             <Route path='/orders' element={<MyRoute element={Orders} isClosed />}/>
+            <Route path='/order' element={<MyRoute element={Order} isClosed />}/>
             <Route path='*' element={<Notfound/>}/>
         </Routes>
     )

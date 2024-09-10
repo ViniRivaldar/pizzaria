@@ -38,24 +38,39 @@ export const Usuario = styled.div`
 
 export const Produto = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
     margin-top: 15px;
 
    
     .cart {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
         border: 1px solid #ccc;
         padding: 10px;
         border-radius: 5px;
+        gap: 10px;
     }
 
+    .cart h3{
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: ${colors.primaryDarkColor};
+        
+    }
     .cart p{
         font-size: 15px;
         font-weight: bold;
         color: ${colors.primaryDarkColor};
+        
+    }
+    .cart input{
+        height: 40px;
+        padding: 0 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
     }
 
 `

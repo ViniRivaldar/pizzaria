@@ -58,6 +58,7 @@ export default function Header(){
                     
                 )}
                 {showCart &&(<Carrinho toggleCart={toggleCart}/>)}
+                <Link to='/order'>Seus pedidos</Link>
              </>   
             )}
         </Nav>
