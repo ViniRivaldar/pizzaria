@@ -6,6 +6,7 @@ import Register from '../page/Register'
 import Login from '../page/Login'
 import Orders from '../page/orders'
 import Order from '../page/order'
+import Adm from '../page/adm'
 import Notfound from '../page/NotFound'
 import MyRoute from './MyRoutes';
 
@@ -18,6 +19,7 @@ export default function AppRoutes() {
             <Route path='/login' element={<MyRoute element={Login} />}/>
             <Route path='/orders' element={<MyRoute element={Orders} isClosed />}/>
             <Route path='/order' element={<MyRoute element={Order} isClosed />}/>
+            <Route path='/adm' element={<MyRoute element={Adm} isClosed />}/>
             <Route path='*' element={<Notfound/>}/>
         </Routes>
     )

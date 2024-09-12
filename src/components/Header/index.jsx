@@ -12,6 +12,7 @@ export default function Header(){
     const[showCart, setShowCart]= useState(false)
     const produtos = useSelector(state => state.cart.carrinho)
     const id = useSelector(state=>state.auth.user._id)
+    const adm = useSelector(state=>state.auth.user.admin)
     const cart = useSelector(state=>state.cart.carrinho)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -58,7 +59,11 @@ export default function Header(){
                     
                 )}
                 {showCart &&(<Carrinho toggleCart={toggleCart}/>)}
-                <Link to='/order'>Seus pedidos</Link>
+                
+                <div className='pedidos'>
+                    {adm &&(<Link to='/adm'>Painel de Administrador</Link>)}
+                    <Link to='/order'>Seus pedidos</Link>
+                </div>
              </>   
             )}
         </Nav>

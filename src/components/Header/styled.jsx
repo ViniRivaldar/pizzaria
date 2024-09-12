@@ -8,6 +8,7 @@ export const Nav = styled.nav`
   gap: 10px;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   h1{
     margin: 0 100px;
@@ -17,6 +18,13 @@ export const Nav = styled.nav`
   a {
     color: #fff;
     font-weight: bold;
+  }
+
+  .pedidos{
+    position: absolute;
+    right: 20px; 
+    display: flex;
+    gap: 15px; 
   }
 
 `;
