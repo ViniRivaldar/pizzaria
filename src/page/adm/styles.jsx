@@ -29,4 +29,8 @@ export const Painel = styled.div`
         }
     }
 
+    div{
+        margin-top: 20px;
+    }
+
 `
